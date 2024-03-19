@@ -1,0 +1,3 @@
+[submodule "Rust-by-Practice"]
+	path = Rust-by-Practice
+	url = https://github.com/Dulina-Perera/Rust-by-Practice.git
