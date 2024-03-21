@@ -1,6 +1,8 @@
+mod db;
 mod models;
 
-use actix_web::{get, patch, post, web, web::Json, App, HttpResponse, HttpServer, Responder};
+use actix_web::{get, patch, post, web, web::Data, web::Json, App, HttpResponse, HttpServer, Responder};
+use crate::db::Database;
 use crate::models::PizzaRequest;
 use validator::Validate;
 
@@ -28,8 +30,12 @@ async fn update_pizza(uuid: web::Path<String>) -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    HttpServer::new(|| {
+    let db = Database::init().await.expect("Failed to initialize database!");
+    let db_data = Data::new(db);
+
+    HttpServer::new(move || {
         App::new()
+            .app_data(db_data.clone())
             .service(get_pizzas)
             .service(buy_pizza)
             .service(update_pizza)
