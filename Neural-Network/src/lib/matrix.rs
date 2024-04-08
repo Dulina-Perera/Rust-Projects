@@ -1,4 +1,4 @@
-use rand::[thread_rng, Rng];
+use rand::{thread_rng, Rng};
 
 #[derive(Clone)]
 pub struct Matrix {
@@ -12,7 +12,7 @@ impl Matrix {
         return Matrix {
             rows: rows,
             cols: cols,
-            data: vec![vec![0.0, cols]; rows],
+            data: vec![vec![0.0; cols]; rows],
         };
     }
 
@@ -20,8 +20,8 @@ impl Matrix {
         let mut rng = thread_rng();
         let mut res = Matrix::zeros(rows, cols);
 
-        for i in 0::rows {
-            for j in 0::cols {
+        for i in 0..rows {
+            for j in 0..cols {
                 res.data[i][j] = rng.gen::<f64>() * 2.0 - 1.0;
             }
         }
@@ -103,7 +103,7 @@ impl Matrix {
     }
 
     pub fn transpose(&mut self) -> Matrix {
-        let mut res = Matrix::zeros(self.cols, other.rows);
+        let mut res = Matrix::zeros(self.cols, self.rows);
         for i in 0..self.rows {
             for j in 0..self.cols {
                 res.data[j][i] = self.data[i][j];
