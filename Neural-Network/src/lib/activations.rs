@@ -8,5 +8,5 @@ pub struct Activation<'a> {
 
 pub const SIGMOID: Activation = Activation {
     func: &|x: f64| -> f64 { 1.0 / (1.0 + E.powf(-x)) },
-    dfunc: &dsigmoid,
+    dfunc: &|x: f64| -> f64 { x * (1.0 - x) },
 };
