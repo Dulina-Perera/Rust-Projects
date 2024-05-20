@@ -1,0 +1,22 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.producer {
+  background-color: #0057b7;
+}
+
+.consumer {
+  background-color: #ffd700;
+}
+
+.producer, .consumer > h3 {
+  color: white;
+  text-align: center;
+}
+
+#webcam {
+  width: 100%;
+  height: auto;
+}

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Streanmer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Streamer</title>
+    
+  <link rel="stylesheet" href="/style-717bf80190bb6cc0.css" integrity="sha384&#x2D;jllRjG1ZZF0rCt6hx8mPm&#x2F;Zxov3dJyCl7QTikrM4s4TQgeRyeCCV4qIo8t&#x2F;oLUpm"/>  
 
-<link rel="modulepreload" href="/Video-Streamer-810ef8156a6726b.js" crossorigin=anonymous integrity="sha384-8nPr8O6fSDlRS6MUEhIef3uSDMqxfvb2yFuUwB+tankJfG8QMgB2BCzMUH0xzLSt">
-<link rel="preload" href="/Video-Streamer-810ef8156a6726b_bg.wasm" crossorigin=anonymous integrity="sha384-Gppv+znxjM0AKD2J7FgBWyIevpQn+66NXmdxeX3pHuJGwCvP2ZkXopHCG2dpR3U8" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/Video-Streamer-579f3af9f5efee89.js" crossorigin=anonymous integrity="sha384-EUY0EfWFuIKTCbVNPTCoZKFyrD1+YNFtyYRIhOU6a7D5ZLWepAG3LOsPqcmyj9gs">
+<link rel="preload" href="/Video-Streamer-579f3af9f5efee89_bg.wasm" crossorigin=anonymous integrity="sha384-CdZbhtM8DXhRYrBCi4QTUa0cl5U1F0dx3iGqt/YUpfuO++WMp30jUufNgJa2ywNP" as="fetch" type="application/wasm"></head>
 <body>
     
 
 <script type="module">
-import init, * as bindings from '/Video-Streamer-810ef8156a6726b.js';
-const wasm = await init('/Video-Streamer-810ef8156a6726b_bg.wasm');
+import init, * as bindings from '/Video-Streamer-579f3af9f5efee89.js';
+const wasm = await init('/Video-Streamer-579f3af9f5efee89_bg.wasm');
 
 
 window.wasmBindings = bindings;
