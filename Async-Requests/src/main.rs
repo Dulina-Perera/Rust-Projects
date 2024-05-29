@@ -1,5 +1,4 @@
 use error_chain::error_chain;
-use std::io::Read;
 
 error_chain! {
   foreign_links {
@@ -8,15 +7,14 @@ error_chain! {
   }
 }
 
-fn main() -> Result<()> {
-  let mut res = reqwest::blocking::get("https://httpbin.org/get")?;
-  
-  let mut body = String::new();
-  res.read_to_string(&mut body)?;
-
+#[tokio::main]
+async fn main() -> Result<()> {
+  let res = reqwest::get("https://httpbin.org/get").await?;
   println!("Status: {}", res.status());
   println!("Headers:\n{:#?}", res.headers());
+
+  let body = res.text().await?;
   println!("Body:\n{}", body);
-  
+
   Ok(())
 }
